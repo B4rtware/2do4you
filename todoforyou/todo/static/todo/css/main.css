@@ -1,0 +1,116 @@
+
+/*  media queries for the card columns layout.
+    On larger screens more columns can be displayed */
+
+.card-columns:last-child {
+    padding-bottom: 30px; 
+}
+
+@media (min-width: 576px) {
+    .card-columns {
+        -webkit-column-count:1;
+        -moz-column-count:1;
+        column-count:1;
+        
+        padding-top: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-columns {
+        -webkit-column-count:2;
+        -moz-column-count:2;
+        column-count:2;
+
+        padding: 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        -webkit-column-count:3;
+        -moz-column-count:3;
+        column-count:3;
+
+        padding: 10px;
+    }
+}
+
+@media (min-width: 1510px) {
+    .card-columns {
+        -webkit-column-count:4;
+        -moz-column-count:4;
+        column-count:4;
+
+        padding: 10px;
+    }
+}
+
+body {
+    /* display a backround image */
+    background: url("/static/todo/image/background.jpg") no-repeat center center fixed;
+    /* cover keeps the image aspect ratio but if needed scales it to prevent white space */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 60px;
+    padding-bottom: 27px;
+    /* used for centering the edit/create card to be cenetered vertically */
+    /*height: 100%;*/
+}
+
+html {
+    /* used for centering the edit/create card to be cenetered vertically */
+    height: 100%;
+}
+
+.title-text {
+    font-weight: bold;
+}
+
+/* add padding to top and bottom of the progressbar */
+.progressbar-container {
+    padding: 5px 0px;
+}
+
+/* make the footer center */
+.footer {
+    width: 100%;
+    text-align: center;
+}
+
+/* change the font color to white*/
+.footer-copyright {
+    color: white;
+    padding: 4px;
+}
+
+/* padding left, right */
+.impressum-datenschutz {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+/* just one create element on the specific page (id)*/
+#create {
+    align-self: center;
+    width: 90%;
+}
+
+@media (min-width: 768px) {
+    #create {
+        width: 530px;
+    }
+}
+
+.content {
+    justify-content: center;
+    height: 100%;
+}
+
+/* used for moving the create and edit card to the center of the screen */
+.content-create {
+    display: flex;
+    flex-direction: column;
+}

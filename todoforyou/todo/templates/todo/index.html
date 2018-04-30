@@ -1,0 +1,46 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+<!-- Karten Gruppen Beginnen hier -->
+<div class="card-columns">
+    <!-- the initial card which will be used to be cloned within javascript-->
+    <div class="card" id="initial-card">
+        <div class="card-body">
+            <!-- card body which includes (description, date created, deadline, progress) -->
+            <!-- description -->
+            <p>Fix the log errors when launching standalone game (deprecated call etc.)</p>
+            <div class="row">
+                <!-- date created -->
+                <div class="text-muted small col">
+                    created 24.04.2018
+                </div>
+                <!-- deadline -->
+                <div class="text-info text-right small col">deadline
+                    <u>28.08.2018</u>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progressbar-container">
+                <div class="progress mx-auto" style="width: 100%">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="10" aria-valuemin="0"
+                        aria-valuemax="100">25%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- card footer which includes (delete, edit) -->
+        <div class="card-footer">
+            <div class="button-group">
+                <!-- delete button -->
+                <button type="button" class="btn btn-danger btn-sm" onclick="this.parentNode.parentNode.parentNode.remove();">
+                    <span class="oi oi-trash"></span> Delete</button>
+                <!-- edit button -->
+                <button type="button" class="btn btn-primary float-right btn-sm" onclick="window.location.href='/edit.html'">
+                    <span class="oi oi-pencil"></span> Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
