@@ -10,3 +10,16 @@ dependencies
 
 install dependencies
 `pipenv sync`
+
+## Setup django
+
+- install it via `pip install django`
+verify it is version 2.*
+- `python -m django --version
+
+- initialize new django project
+`django-admin startproject <mysite>`
+
+- start development server (script run-dev)
+
+## Setup Mariadb

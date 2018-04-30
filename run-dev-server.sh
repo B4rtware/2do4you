@@ -1,0 +1,1 @@
+python todoforyou/manage.py runserver
