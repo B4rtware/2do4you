@@ -23,3 +23,8 @@ verify it is version 2.*
 - start development server (script run-dev)
 
 ## Setup Mariadb
+
+## django database
+
+- mysql_config not found
+-> `sudo apt install libmysqlclient-dev python-dev`
