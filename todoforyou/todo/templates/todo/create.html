@@ -2,10 +2,25 @@
 
 {% block content %}
 <form action="" method="post" id="create">
-    {% csrf_token %}
-    <table>
-    {{ form }}
-    </table>
-    <input type="submit" value="Submit" />
+    <div class="card">
+        {% csrf_token %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        <div class="card-header">
+            <h3>New Entry</h3>
+        </div>
+        <div class="card-body">
+            {% for field in form.visible_fields %}
+                <div class="form-group">
+                    <label>{{ field.label_tag }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="card-footer">
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
 </form>
 {% endblock content %}
