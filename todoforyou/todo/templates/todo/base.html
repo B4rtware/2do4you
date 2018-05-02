@@ -14,6 +14,9 @@
     <!-- Our custom CSS -->
     <link rel="stylesheet" href="{% static 'todo/css/main.css' %}">
 
+    <!-- JQuery UI stylesheet -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css">
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://b4rtware.github.io/favicons/apple-touch-icon.png?v=A0eQyrX6JR">
     <link rel="icon" type="image/png" sizes="32x32" href="https://b4rtware.github.io/favicons/favicon-32x32.png?v=A0eQyrX6JR">
@@ -94,6 +97,24 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <!-- Jquery UI elements -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- script for initializing the jquery ui elements and events -->
+    <script>
+        $(function () {
+            $(".datepicker").datepicker();
+            // initialize slider and callback on change
+            $("#slider").slider({
+                slide: function (event, ui) { }
+            });
+            // bind an event listener to the slidechange event (http://api.jqueryui.com/slider/)
+            $("#slider").on("slide", function (event, ui) {
+                $("#create-progressbar").attr("aria-valuenow", ui.value).css("width", ui.value + '%').text(ui.value + '%');
+            });
+        });
+    </script>
 </body>
 
 </html>

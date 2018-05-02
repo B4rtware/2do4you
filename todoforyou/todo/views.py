@@ -1,15 +1,30 @@
-from .forms import TodoForm
+from todo.forms import TodoForm
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
+from todo.models import Todo
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'todo/index.html', None)
+    todos = Todo.objects.all()
+    payload = {"todos": todos}
+    return render(request, 'todo/index.html', payload)
 
 def create(request):
     if request.method == 'POST':
-        pass
+        # create a form instance and populate it with data from the request
+        form = TodoForm(request.POST)
+        # check wheter its valid
+        if form.is_valid():
+            description = form.cleaned_data.get("description")
+            deadline = form.cleaned_data.get("deadline")
+            progress = form.cleaned_data.get("progress")
+
+            new_todo = Todo(description = description, deadline = deadline, progress = progress)
+            new_todo.save()
+
+            return HttpResponseRedirect('/todo/')
     else:
         form = TodoForm()
-        content = {"form": form}
-    return render(request, 'todo/create.html', content)
+        return render(request, 'todo/create.html', {"form": form})
