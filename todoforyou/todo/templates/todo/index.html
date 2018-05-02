@@ -12,11 +12,11 @@
                 <div class="row">
                     <!-- date created -->
                     <div class="text-muted small col">
-                        created {{ todo.created }}
+                        created {{ todo.created|date:"d.m.y" }}
                     </div>
                     <!-- deadline -->
                     <div class="text-info text-right small col">deadline
-                        <u> {{ todo.deadline }}</u>
+                        <u>{{ todo.deadline|date:"d.m.y" }}</u>
                     </div>
                 </div>
     

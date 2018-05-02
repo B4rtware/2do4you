@@ -15,7 +15,7 @@ def create(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request
         form = TodoForm(request.POST)
-        # check wheter its valid
+        # check whether its valid
         if form.is_valid():
             description = form.cleaned_data.get("description")
             deadline = form.cleaned_data.get("deadline")
