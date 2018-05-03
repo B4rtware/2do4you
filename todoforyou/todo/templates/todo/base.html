@@ -47,7 +47,7 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <a class="navbar-brand" href="todo/">
+        <a class="navbar-brand" href="{% url 'index' %}">
             <span class="title-text">2</span>DO
             <span class="title-text">4</span>YOU</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
@@ -57,15 +57,15 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="todo/">Home
+                    <a class="nav-link" href="{% url 'index' %}">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="impressum.html">Impressum</a>
+                    <a class="nav-link" href="#">Impressum</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/create">Create</a>
+                    <a class="nav-link" href="{% url 'create' %}">Create</a>
                 </li>
             </ul>
         </div>

@@ -1,6 +1,9 @@
 from todo.forms import TodoForm
+from django.views.generic.edit import DeleteView
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+
+from django.urls import reverse_lazy
 
 from todo.models import Todo
 
@@ -10,6 +13,11 @@ def index(request):
     todos = Todo.objects.all()
     payload = {"todos": todos}
     return render(request, 'todo/index.html', payload)
+
+
+class TodoDelete(DeleteView):
+    model = Todo
+    success_url = reverse_lazy('index')
 
 def create(request):
     if request.method == 'POST':

@@ -1,47 +1,57 @@
-{% extends "todo/base.html" %}
-
-{% block content %}
+{% extends "todo/base.html" %} {% block content %}
 <!-- Karten Gruppen Beginnen hier -->
 <div class="card-columns">
     {% for todo in todos %}
-        <div class="card" id="initial-card">
-            <div class="card-body">
-                <!-- card body which includes (description, date created, deadline, progress) -->
-                <!-- description -->
-                <p>{{ todo.description }}</p>
-                <div class="row">
-                    <!-- date created -->
-                    <div class="text-muted small col">
-                        created {{ todo.created|date:"d.m.y" }}
-                    </div>
-                    <!-- deadline -->
-                    <div class="text-info text-right small col">deadline
-                        <u>{{ todo.deadline|date:"d.m.y" }}</u>
-                    </div>
+    <div class="card" id="initial-card">
+        <div class="card-body">
+            <!-- card body which includes (description, date created, deadline, progress) -->
+            <!-- description -->
+            <p>{{ todo.description }}</p>
+            <div class="row">
+                <!-- date created -->
+                <div class="text-muted small col">
+                    created {{ todo.created|date:"d.m.y" }}
                 </div>
-    
-                <!-- Progress Bar -->
-                <div class="progressbar-container">
-                    <div class="progress mx-auto" style="width: 100%">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ todo.progress }}%" aria-valuenow="{{ todo.progress }}" aria-valuemin="0"
-                            aria-valuemax="100">{{ todo.progress }}%
-                        </div>
-                    </div>
+                <!-- deadline -->
+                <div class="text-info text-right small col">deadline
+                    <u>{{ todo.deadline|date:"d.m.y" }}</u>
                 </div>
             </div>
-    
-            <!-- card footer which includes (delete, edit) -->
-            <div class="card-footer">
-                <div class="button-group">
-                    <!-- delete button -->
-                    <button type="button" class="btn btn-danger btn-sm" onclick="this.parentNode.parentNode.parentNode.remove();">
-                        <span class="oi oi-trash"></span> Delete</button>
-                    <!-- edit button -->
-                    <button type="button" class="btn btn-primary float-right btn-sm" onclick="window.location.href='/edit.html'">
-                        <span class="oi oi-pencil"></span> Edit</button>
+
+            <!-- Progress Bar -->
+            <div class="progressbar-container">
+                <div class="progress mx-auto" style="width: 100%">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ todo.progress }}%" aria-valuenow="{{ todo.progress }}"
+                        aria-valuemin="0" aria-valuemax="100">{{ todo.progress }}%
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- card footer which includes (delete, edit) -->
+        <div class="card-footer row no-gutters">
+            <!-- delete button -->
+            <div class="col-6">
+                <form action="{% url 'delete' todo.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="todo_id" value="{{ todo.id }}" />
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        <span class="oi oi-trash"></span> Delete</button>
+                </form>
+            </div>
+
+            <!-- edit button -->
+            <div class="col-6">
+                <form action="#">
+                    {% csrf_token %}
+                    <input type="hidden" name="todo_id" value="{{ todo.id }}" />
+                    <button type="submit" class="btn btn-primary float-right btn-sm" onclick="window.location.href='/edit.html'">
+                        <span class="oi oi-pencil"></span> Edit</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}
