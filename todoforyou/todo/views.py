@@ -32,7 +32,7 @@ def create(request):
             new_todo = Todo(description = description, deadline = deadline, progress = progress)
             new_todo.save()
 
-            return HttpResponseRedirect('/todo/')
+            return HttpResponseRedirect(reverse_lazy('index'))
     else:
         form = TodoForm()
         return render(request, 'todo/create.html', {"form": form})

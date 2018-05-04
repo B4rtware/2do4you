@@ -1,4 +1,14 @@
-<form method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
-    <input type="submit" value="Confirm" />
-</form>
+{% extends "todo/base.html" %}
+{% block content %}
+
+<div class="content-create">
+<div class="card" id="create">
+    <div class="card-body">
+        <form method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object.description }}"?</p>
+            <input class="btn btn-primary" type="submit" value="Confirm" />
+        </form>
+    </div>
+</div>
+</div>
+{% endblock content %}

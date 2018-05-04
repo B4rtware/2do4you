@@ -1,6 +1,7 @@
 {% extends "todo/base.html" %}
 
 {% block content %}
+<div class="content-create">
 <form action="" method="post" id="create">
     <div class="card">
         {% csrf_token %}
@@ -23,4 +24,5 @@
         </div>
     </div>
 </form>
+</div>
 {% endblock content %}
