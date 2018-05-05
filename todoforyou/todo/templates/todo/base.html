@@ -101,20 +101,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <!-- script for initializing the jquery ui elements and events -->
-    <script>
-        $(function () {
-            $(".datepicker").datepicker();
-            // initialize slider and callback on change
-            $("#slider").slider({
-                slide: function (event, ui) { }
-            });
-            // bind an event listener to the slidechange event (http://api.jqueryui.com/slider/)
-            $("#slider").on("slide", function (event, ui) {
-                $("#create-progressbar").attr("aria-valuenow", ui.value).css("width", ui.value + '%').text(ui.value + '%');
-            });
-        });
-    </script>
+    {% block javascript %}
+    {% endblock javascript %}
 </body>
 
 </html>

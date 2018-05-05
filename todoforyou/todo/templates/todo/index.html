@@ -42,7 +42,7 @@
 
             <!-- edit button -->
             <div class="col-6">
-                <form action="#">
+                <form action="{% url 'update' todo.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="todo_id" value="{{ todo.id }}" />
                     <button type="submit" class="btn btn-primary float-right btn-sm" onclick="window.location.href='/edit.html'">

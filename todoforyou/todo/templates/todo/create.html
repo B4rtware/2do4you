@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="content-create">
-<form action="" method="post" id="create">
+<form action="" method="post" id="create" data-url="{% url 'create' %}">
     <div class="card">
         {% csrf_token %}
         {% for hidden in form.hidden_fields %}
@@ -26,3 +26,46 @@
 </form>
 </div>
 {% endblock content %}
+
+{% block javascript %}
+    <script>
+        // script for initializing the jquery ui elements and events
+        $(function () {
+            $(".datepicker").datepicker();
+            // initialize slider and callback on change
+            $("#slider").slider({
+                slide: function (event, ui) { }
+            });
+            // bind an event listener to the slidechange event (http://api.jqueryui.com/slider/)
+            $("#slider").on("slide", function (event, ui) {
+                $("#create-progressbar").attr("aria-valuenow", ui.value).css("width", ui.value + '%').text(ui.value + '%');
+            });
+        });
+
+        $(document).ready(function() {
+            var form = $("#create");
+            form.submit(function(event) {
+                event.preventDefault();
+                var serializedFormData = form.serialize();
+                var formUrl = form.attr("data-url")
+                $.ajax({
+                    method: "POST",
+                    url: formUrl,
+                    data: serializedFormData,
+                    success: OnAjaxSuccess,
+                    error: OnAjaxFailure,
+                });
+
+                function OnAjaxSuccess(data) {
+                    $("body").append(
+                        '<div class="alert alert-success">' + '<strong>Success!</strong> ' + data["message"] + '</div>'
+                    )
+                }
+
+                function OnAjaxFailure(error) {
+                    console.log(data);
+                }
+            });
+        });
+    </script>
+{% endblock javascript %}

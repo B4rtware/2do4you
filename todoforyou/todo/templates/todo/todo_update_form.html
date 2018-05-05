@@ -3,9 +3,12 @@
 {% block content %}
 <div class="content-create">
 <div class="card" id="create">
+    <div class="card-header">
+        <h3>Edit Card</h3>
+    </div>
     <div class="card-body">
         <form method="post">{% csrf_token %}
-            <p>Are you sure you want to delete "{{ object.description }}"?</p>
+            {{ form.as_p }}
             <input class="btn btn-primary" type="submit" value="Confirm" />
         </form>
     </div>
