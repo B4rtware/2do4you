@@ -24,6 +24,9 @@ verify it is version 2.*
 
 ## Setup Mariadb
 
+- Its not intigrated into the repo of the standard jessie release (above jessie its integrated)
+visit this site to add it into your repos: https://downloads.mariadb.org/mariadb/repositories
+
 ## django database
 
 - mysql_config not found
