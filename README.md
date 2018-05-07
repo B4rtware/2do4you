@@ -30,4 +30,4 @@ visit this site to add it into your repos: https://downloads.mariadb.org/mariadb
 ## django database
 
 - mysql_config not found
--> `sudo apt install libmysqlclient-dev python-dev`
+-> `sudo apt install libmariadbclient-dev`
