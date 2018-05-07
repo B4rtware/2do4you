@@ -57,7 +57,7 @@ body {
     padding-top: 60px;
     padding-bottom: 27px;
     /* used for centering the edit/create card to be cenetered vertically */
-    /*height: 100%;*/
+    height: 100%;
 }
 
 html {
@@ -93,24 +93,26 @@ html {
 }
 
 /* just one create element on the specific page (id)*/
-#create {
-    align-self: center;
+#single-card {
+    /*align-self: center;*/
     width: 90%;
 }
 
 @media (min-width: 768px) {
-    #create {
+    #single-card {
         width: 530px;
     }
 }
 
 .content {
+    display: flex;
     justify-content: center;
     height: 100%;
 }
 
 /* used for moving the create and edit card to the center of the screen */
-.content-create {
+.content-single-card {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
