@@ -9,7 +9,7 @@ dependencies
 - django (2>)
 
 install dependencies and make sure to use python3.6
-`pipenv sync --python 3.6`
+- `pipenv sync --python 3.6`
 
 ## Setup django
 
