@@ -6,13 +6,25 @@
     padding-bottom: 30px; 
 }
 
+/* fix for chrome so that the cards are ordered in column direction*/
+.card-columns {
+    orphans: 1 !important;
+    widows:1 !important;
+
+    padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .card-columns {
+        width: 100%;
+    }
+}
+
 @media (min-width: 576px) {
     .card-columns {
         -webkit-column-count:1;
         -moz-column-count:1;
         column-count:1;
-        
-        padding-top: 10px;
     }
 }
 
@@ -21,8 +33,6 @@
         -webkit-column-count:2;
         -moz-column-count:2;
         column-count:2;
-
-        padding: 10px;
     }
 }
 
@@ -31,8 +41,6 @@
         -webkit-column-count:3;
         -moz-column-count:3;
         column-count:3;
-
-        padding: 10px;
     }
 }
 
@@ -41,8 +49,6 @@
         -webkit-column-count:4;
         -moz-column-count:4;
         column-count:4;
-
-        padding: 10px;
     }
 }
 
@@ -108,6 +114,8 @@ html {
     display: flex;
     justify-content: center;
     height: 100%;
+
+    padding: 0px 10px;
 }
 
 /* used for moving the create and edit card to the center of the screen */

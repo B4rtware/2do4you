@@ -1,4 +1,5 @@
 .vscode/
+node-v10.0.0-win-x64/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
