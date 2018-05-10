@@ -124,3 +124,13 @@ html {
     flex-direction: column;
     justify-content: center;
 }
+
+.oi-plus-no-entry {
+    font-size: 75px;
+}
+
+.oi-plus-normal {
+    font-size: 47px;
+}
+
+
