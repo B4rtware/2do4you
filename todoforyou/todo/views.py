@@ -1,5 +1,5 @@
 from todo.forms import TodoForm
-from django.views.generic.edit import DeleteView, UpdateView
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
@@ -23,6 +23,12 @@ class TodoUpdate(UpdateView):
 
 class TodoDelete(DeleteView):
     model = Todo
+    success_url = reverse_lazy('index')
+    
+class TodoCreate(CreateView):
+    model = Todo
+    form_class = TodoForm
+    template_name = "todo/todo_create_form.html"
     success_url = reverse_lazy('index')
 
 

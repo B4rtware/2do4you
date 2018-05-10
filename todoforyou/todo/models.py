@@ -14,4 +14,4 @@ class Todo(models.Model):
     deadline = models.DateField()
     progress = models.IntegerField(default=0, validators=[MaxValueValidator(100), MinValueValidator(0)])
     created = models.DateTimeField(auto_now_add=True)
-    importance = models.IntegerField(choices=IMPORTANCE_CHOICES, default=IMPORTANCE_CHOICES[1][0])
+    importance = models.IntegerField(choices=IMPORTANCE_CHOICES, default=IMPORTANCE_CHOICES[0][0])
