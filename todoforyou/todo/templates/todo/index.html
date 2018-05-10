@@ -37,7 +37,7 @@
             <div class="progressbar-container">
                 <div class="progress mx-auto" style="width: 100%">
                     <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ todo.progress }}%" aria-valuenow="{{ todo.progress }}"
-                        aria-valuemin="0" aria-valuemax="100">{{ todo.progress }}%
+                        aria-valuemin="0" aria-valuemax="100"> {{ todo.progress }}%
                     </div>
                 </div>
             </div>
@@ -71,6 +71,7 @@
 
 
     <!-- TEST -->
+    <!--
     <div class="content-single-card-new-entry">
         <form action="" id="single-card-new-entry">
             <div class="card">
@@ -78,9 +79,9 @@
                     <h4>New Entry</h4>
                 </div>
 
-                <div class="card-body  border border-danger">
+                <div class="card-body  border border-light">
                     <div class="text-center">
-                        <a style="color:black;" href={% url 'create' %}>
+                        <a style="color:black; width:100%; display: block;" href={% url 'create' %}>
                             <span class="oi oi-plus oi-plus-normal"></span>
                         </a>
                     </div>
@@ -91,9 +92,8 @@
 
         </form>
     </div>
-
+    -->
     <!-- TEST END-->
-
 
 </div>
 {% else %}
@@ -108,8 +108,8 @@
 
         <div class="text-center">
             <!-- border border-success rounded -->
-            <a style="color:black;" href={% url 'create' %}>
-                <span class="oi oi-plus oi-plus-no-entry"></span>
+            <a style="color:#28a745;;" href={% url 'create' %}>
+                <span class="oi oi-plus oi-plus-no-entry --success"></span>
             </a>
         </div>
 

@@ -29,6 +29,10 @@ class TodoDelete(DeleteView):
 def impressum(request):
     return render(request, 'todo/impressum.html', {})
 
+def contact(request):
+    return render(request, 'todo/contact.html', {})
+    
+
 def create(request):
     if request.is_ajax():
         form = TodoForm(request.POST)

@@ -10,14 +10,9 @@
 .card-columns {
     orphans: 1 !important;
     widows:1 !important;
+    width: 100%;
 
     padding-top: 10px;
-}
-
-@media (max-width: 768px) {
-    .card-columns {
-        width: 100%;
-    }
 }
 
 @media (min-width: 576px) {
@@ -130,7 +125,12 @@ html {
 }
 
 .oi-plus-normal {
-    font-size: 47px;
+    font-size: 64px;
+}
+
+#contact-class-id {
+    /*align-self: center;*/
+    width: 45%;
 }
 
 
