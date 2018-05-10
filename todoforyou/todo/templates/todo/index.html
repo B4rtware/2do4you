@@ -67,25 +67,24 @@
 
         </div>
     </div>
+    {% endfor %}
 
 
-    <div class="content-single-card2">
-        <form action="" id="single-card2">
+    <!-- TEST -->
+    <div class="content-single-card-new-entry">
+        <form action="" id="single-card-new-entry">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-center">
                     <h4>New Entry</h4>
                 </div>
-                <div class="card-body">
+
+                <div class="card-body  border border-danger">
                     <div class="text-center">
-                        <!-- border border-success rounded -->
                         <a style="color:black;" href={% url 'create' %}>
                             <span class="oi oi-plus oi-plus-normal"></span>
                         </a>
                     </div>
                 </div>
-
-
-                <!-- card footer which includes (delete, edit) -->
                 <div class="card-footer row no-gutters">
                 </div>
             </div>
@@ -93,10 +92,9 @@
         </form>
     </div>
 
+    <!-- TEST END-->
 
-</div>
 
-{% endfor %}
 </div>
 {% else %}
 <div class="content-single-card">
@@ -121,3 +119,6 @@
     </div>
 </div>
 {% endif %} {% endblock %}
+
+
+  
