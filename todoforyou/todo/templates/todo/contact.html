@@ -1,27 +1,36 @@
 {% extends "todo/base.html" %} {% block content %}
 
-<div class="contact-class" id="contact-class-id">
-    <div class="card-columns" style="column-count: 1; ">
-        <div class="card">
-            <div class="card-header">
-                <h1>Contact</h1>
-            </div>
+<div class="contact-class content-single-card" id="contact-class-id">
+    <!--
+    <div class="card">
+        <div class="card-header text-center">
+            <h1> Contact </h1>
+        </div>
+    </div>
+    -->
+
+    <div class="card-deck">
+
+        <div class="card contact-card">
+            <img class="card-img-top" src="https://avatars1.githubusercontent.com/u/34386047" alt="Card image cap">
             <div class="card-body">
-                <!-- Impressum -->
-                <a style="color:black;" href="https://github.com/B4rtware" target="_blank">
-                    <span class="oi oi-person"></span>
-                </a>Simon Schiller
-                <br>
-                <a style="color:black;" href="https://github.com/Re-Krass" target="_blank">
-                    <span class="oi oi-person"></span>
-                </a>René Karraß
-
-
-
-
+                <h5 class="card-title">Simon Schiller</h5>
             </div>
+            <div class="card-footer">
+                <a href="https://github.com/B4rtware" target="_blank" class="btn btn-primary">GitHub</a>
+            </div>
+
         </div>
 
+        <div class="card contact-card">
+            <img class="card-img-top" src="https://avatars0.githubusercontent.com/u/38668040" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">René Karraß</h5>
+            </div>
+            <div class="card-footer">
+                <a href="https://github.com/Re-Krass" target="_blank" class="btn btn-primary">GitHub</a>
+            </div>
+        </div>
 
     </div>
     <p>&nbsp;</p>
