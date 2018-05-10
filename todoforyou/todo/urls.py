@@ -8,6 +8,7 @@ from . import views
 urlpatterns = [
     path('', views.index, name="index"),
     path('create/', views.create, name="create"),
+    path('impressum/', views.impressum, name="impressum"),
     path('delete/<int:pk>/', TodoDelete.as_view(), name = "delete"),
     path('update/<int:pk>/', TodoUpdate.as_view(), name = "update"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -25,6 +25,10 @@ class TodoDelete(DeleteView):
     model = Todo
     success_url = reverse_lazy('index')
 
+
+def impressum(request):
+    return render(request, 'todo/impressum.html', {})
+
 def create(request):
     if request.is_ajax():
         form = TodoForm(request.POST)
