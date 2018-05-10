@@ -11,7 +11,7 @@ from todo.models import Todo
 # Create your views here.
 
 def index(request):
-    todos = Todo.objects.all()
+    todos = Todo.objects.order_by('-importance')
     payload = {"todos": todos}
     return render(request, 'todo/index.html', payload)
 

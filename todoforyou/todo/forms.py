@@ -4,7 +4,7 @@ from .models import Todo
 class TodoForm(ModelForm):
     class Meta:
         model = Todo
-        fields = ["description", "deadline", "progress"]
+        fields = ["description", "deadline", "progress", "importance"]
         widgets = {
             "deadline": DateInput(attrs={'class': 'datepicker form-control'}),
             "description": TextInput(attrs={'class': 'form-control'}),
