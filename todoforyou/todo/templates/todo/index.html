@@ -37,7 +37,7 @@
             <div class="progressbar-container">
                 <div class="progress mx-auto" style="width: 100%">
                     <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ todo.progress }}%" aria-valuenow="{{ todo.progress }}"
-                        aria-valuemin="0" aria-valuemax="100"> {{ todo.progress }}%
+                        aria-valuemin="0" aria-valuemax="100"> {% if todo.progress > 9 %} {{ todo.progress }}% {% endif %}
                     </div>
                 </div>
             </div>
