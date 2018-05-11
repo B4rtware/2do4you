@@ -10,14 +10,9 @@
 .card-columns {
     orphans: 1 !important;
     widows:1 !important;
+    width: 100%;
 
     padding-top: 10px;
-}
-
-@media (max-width: 768px) {
-    .card-columns {
-        width: 100%;
-    }
 }
 
 @media (min-width: 576px) {
@@ -124,3 +119,26 @@ html {
     flex-direction: column;
     justify-content: center;
 }
+
+.oi-plus-no-entry {
+    font-size: 75px;
+}
+
+.oi-plus-normal {
+    font-size: 64px;
+}
+
+#contact-class-id {
+    /*align-self: center;*/
+    width: 45%;
+}
+
+.contact-card {
+    border-width: 5px;
+}
+
+.oi-plus-navbar {
+    width: 8px;
+    height: 8px;
+}
+

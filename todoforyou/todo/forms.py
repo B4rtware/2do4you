@@ -1,9 +1,8 @@
-from django.forms import ModelForm, DateInput, TextInput
+from django.forms import ModelForm, DateInput, TextInput, Select
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.views.generic import CreateView
 from .models import Todo, TodoUser
-
 
 class TodoForm(ModelForm):
     class Meta:
@@ -12,7 +11,8 @@ class TodoForm(ModelForm):
         widgets = {
             "deadline": DateInput(attrs={'class': 'datepicker form-control'}),
             "description": TextInput(attrs={'class': 'form-control'}),
-            "progress": TextInput(attrs={'class': 'form-control'})
+            "progress": TextInput(attrs={'class': 'form-control'}),
+            "importance": Select(attrs={'class': 'form-control'})
         }
 
 class TodoAuthenticationForm(AuthenticationForm):
@@ -25,4 +25,5 @@ class TodoSignupForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.model = TodoUser
-    
+
+        

@@ -7,6 +7,7 @@
         <form method="post">{% csrf_token %}
             <p>Are you sure you want to delete "{{ object.description }}"?</p>
             <input class="btn btn-primary" type="submit" value="Confirm" />
+           <!-- <input class="btn btn-danger" type="submit" value="Deny" /> --> 
         </form>
     </div>
 </div>

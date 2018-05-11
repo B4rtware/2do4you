@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from todo.forms import TodoForm, TodoSignupForm
+=======
+from todo.forms import TodoForm
+>>>>>>> 9b42d75add291aaef455058562181d3298ea745b
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -24,6 +28,12 @@ class TodoUpdateView(UpdateView):
 class TodoDeleteView(DeleteView):
     model = Todo
     success_url = reverse_lazy('index')
+    
+class TodoCreateView(CreateView):
+    model = Todo
+    form_class = TodoForm
+    template_name = "todo/todo_create_form.html"
+    success_url = reverse_lazy('index')
 
 class TodoSignupView(CreateView):
     form_class = TodoSignupForm
@@ -33,6 +43,10 @@ class TodoSignupView(CreateView):
 
 def impressum(request):
     return render(request, 'todo/impressum.html', {})
+
+def contact(request):
+    return render(request, 'todo/contact.html', {})
+    
 
 def create(request):
     if request.is_ajax():

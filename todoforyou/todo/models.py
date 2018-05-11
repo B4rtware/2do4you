@@ -15,6 +15,7 @@ class Todo(models.Model):
     deadline = models.DateField()
     progress = models.IntegerField(default=0, validators=[MaxValueValidator(100), MinValueValidator(0)])
     created = models.DateTimeField(auto_now_add=True)
+<<<<<<< HEAD
     importance = models.IntegerField(choices=IMPORTANCE_CHOICES, default=IMPORTANCE_CHOICES[1][0])
 
     class Meta:
@@ -23,3 +24,6 @@ class Todo(models.Model):
 class TodoUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     todo = models.ForeignKey(Todo, on_delete=models.CASCADE)
+=======
+    importance = models.IntegerField(choices=IMPORTANCE_CHOICES, default=IMPORTANCE_CHOICES[0][0])
+>>>>>>> 9b42d75add291aaef455058562181d3298ea745b
