@@ -1,19 +1,24 @@
-{% extends "todo/base.html" %}
-
-{% block content %}
+{% extends "todo/base.html" %} {% block content %}
 <div class="content-single-card">
   <div class="card">
     <form action="" method="post" id="single-card" data-url="{% url 'login' %}">
-        {% csrf_token %}
-        <div class="card-header">
-          <h3>Login</h3>
-        </div>
-        <div class="card-body">
-            {{ form.as_p }}
-        </div>
-        <div class="card-footer">
+      {% csrf_token %}
+      <div class="card-header">
+        <h3>Login</h3>
+      </div>
+      <div class="card-body">
+        {{ form.as_p }}
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col">
             <input type="submit" value="Login" class="btn btn-success" />
+          </div>
+          <div class="col">
+            <a class="btn float-right" href="{% url 'signup' %}">Signup</a>
+          </div>
         </div>
+      </div>
     </form>
   </div>
 </div>

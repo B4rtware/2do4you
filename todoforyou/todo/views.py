@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from django.urls import reverse_lazy
 
@@ -13,10 +13,10 @@ from todo.models import Todo
 
 # Create your views here.
 
-def index(request):
-    todos = Todo.objects.all()#order_by('-importance')
-    payload = {"todos": todos}
-    return render(request, 'todo/index.html', payload)
+#def index(request):
+#    todos = Todo.objects.all()#order_by('-importance')
+#    payload = {"todos": todos}
+#    return render(request, 'todo/index.html', payload)
 
 class TodoIndexView(LoginRequiredMixin, ListView):
     model = Todo
@@ -46,17 +46,18 @@ class TodoSignupView(CreateView):
         valid = super(TodoSignupView, self).form_valid(form)
 
         if valid:
-            print("was valid")
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password1")
-            print("was valid {0} {1}".format(username, password))
             new_user = authenticate(username = username, password = password)
 
             if new_user:
-                print("new user was authenticated")
                 login(self.request, new_user)
 
         return valid
+
+def sign_out(request):
+    logout(request)
+    return HttpResponseRedirect(reverse_lazy('index'))
 
 def impressum(request):
     return render(request, 'todo/impressum.html', {})
