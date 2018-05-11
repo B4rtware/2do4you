@@ -71,7 +71,20 @@
                 <li class="nav-item {% if url_name == 'impressum' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'impressum' %}">Impressum</a>
                 </li>
+                
             </ul>
+            <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item {% if url_name == 'login' %}active{% endif %} form-inline">
+                            <a class="nav-link" title="{{ user.username }}" href="{% url 'signout' %}">Sign out</a>
+                        </li>
+                    {% else %}
+                    <li class="nav-item {% if url_name == 'login' %}active{% endif %} form-inline">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    {% endif %}
+            </ul>
+
         </div>
     </nav>
 

@@ -1,4 +1,7 @@
 from django.forms import ModelForm, DateInput, TextInput, Select
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.models import User
+from django.views.generic import CreateView
 from .models import Todo
 
 class TodoForm(ModelForm):
@@ -11,5 +14,14 @@ class TodoForm(ModelForm):
             "progress": TextInput(attrs={'class': 'form-control'}),
             "importance": Select(attrs={'class': 'form-control'})
         }
+
+class TodoAuthenticationForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["username"].widget.attrs["class"] = "form-control"
+        self.fields["password"].widget.attrs["class"] = "form-control"
+
+class TodoSignupForm(UserCreationForm):
+    pass
 
         

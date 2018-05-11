@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+LOGIN_URL = 'login'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'todoforyou.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'sqlite3.db',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "todoforyou",
+        'USER': "life",
+        'PASSWORD': "password1234",
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 

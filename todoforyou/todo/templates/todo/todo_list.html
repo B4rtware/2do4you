@@ -2,10 +2,10 @@
 
 {% block content %}
 <!-- check if todos are already created -->
-{% if todos.count != 0 %}
+{% if object_list.count != 0 %}
 <!-- Karten Gruppen Beginnen hier -->
 <div class="card-columns">
-    {% for todo in todos %}
+    {% for todo in object_list %}
     <div class="card" id="initial-card">
         <div class="card-body">
             <!-- card body which includes (description, date created, deadline, progress) -->
@@ -57,33 +57,6 @@
         </div>
     </div>
     {% endfor %}
-
-
-    <!-- TEST -->
-    <!--
-    <div class="content-single-card-new-entry">
-        <form action="" id="single-card-new-entry">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h4>New Entry</h4>
-                </div>
-
-                <div class="card-body  border border-light">
-                    <div class="text-center">
-                        <a style="color:black; width:100%; display: block;" href={% url 'create' %}>
-                            <span class="oi oi-plus oi-plus-normal"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="card-footer row no-gutters">
-                </div>
-            </div>
-
-        </form>
-    </div>
-    -->
-    <!-- TEST END-->
-
 </div>
 {% else %}
 <div class="content-single-card">
