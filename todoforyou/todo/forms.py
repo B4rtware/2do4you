@@ -2,7 +2,7 @@ from django.forms import ModelForm, DateInput, TextInput, Select
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.views.generic import CreateView
-from .models import Todo, TodoUser
+from .models import Todo
 
 class TodoForm(ModelForm):
     class Meta:
@@ -22,8 +22,6 @@ class TodoAuthenticationForm(AuthenticationForm):
         self.fields["password"].widget.attrs["class"] = "form-control"
 
 class TodoSignupForm(UserCreationForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.model = TodoUser
+    pass
 
         

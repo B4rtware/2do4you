@@ -1,12 +1,11 @@
-<<<<<<< HEAD
 from todo.forms import TodoForm, TodoSignupForm
-=======
-from todo.forms import TodoForm
->>>>>>> 9b42d75add291aaef455058562181d3298ea745b
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
+from django.views.generic.list import ListView
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import authenticate, login
 
 from django.urls import reverse_lazy
 
@@ -19,17 +18,20 @@ def index(request):
     payload = {"todos": todos}
     return render(request, 'todo/index.html', payload)
 
-class TodoUpdateView(UpdateView):
+class TodoIndexView(LoginRequiredMixin, ListView):
+    model = Todo
+
+class TodoUpdateView(LoginRequiredMixin, UpdateView):
     model = Todo
     form_class = TodoForm
     template_name = "todo/todo_update_form.html"
     success_url = reverse_lazy('index')
 
-class TodoDeleteView(DeleteView):
+class TodoDeleteView(LoginRequiredMixin, DeleteView):
     model = Todo
     success_url = reverse_lazy('index')
     
-class TodoCreateView(CreateView):
+class TodoCreateView(LoginRequiredMixin, CreateView):
     model = Todo
     form_class = TodoForm
     template_name = "todo/todo_create_form.html"
@@ -40,6 +42,21 @@ class TodoSignupView(CreateView):
     success_url = reverse_lazy('index')
     template_name = "todo/todo_signup_form.html"
 
+    def form_valid(self, form):
+        valid = super(TodoSignupView, self).form_valid(form)
+
+        if valid:
+            print("was valid")
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password1")
+            print("was valid {0} {1}".format(username, password))
+            new_user = authenticate(username = username, password = password)
+
+            if new_user:
+                print("new user was authenticated")
+                login(self.request, new_user)
+
+        return valid
 
 def impressum(request):
     return render(request, 'todo/impressum.html', {})
