@@ -10,7 +10,20 @@
         <div class="card-body">
             <!-- card body which includes (description, date created, deadline, progress) -->
             <!-- description -->
-            <p>{{ todo.description }}</p>
+            <div class="row">
+                    <div class="col ">
+                        <p>{{ todo.description }}
+                        </p>
+                    </div>
+                    <div class="col text-right">
+                        <span class="oi oi-media-record" style="color: 
+                        {% if todo.importance == 000 %}white 
+                        {% elif todo.importance == 100 %}green 
+                        {% elif todo.importance == 200 %}orange 
+                        {% elif todo.importance == 300 %}red 
+                        {% endif %}"></span>
+                    </div>
+                </div>
             <div class="row">
                 <!-- date created -->
                 <div class="text-muted small col">
