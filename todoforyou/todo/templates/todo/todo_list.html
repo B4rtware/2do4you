@@ -10,19 +10,22 @@
         <div class="card-body">
             <!-- card body which includes (description, date created, deadline, progress) -->
             <!-- description -->
-            <div class="row">
-                    <div class="col ">
+            <div class="d-flex flex-row">
+                <div style="flex: 1">
                         <p>{{ todo.description }}
-                        </p>
-                    </div>
-                    <div class="col text-right">
+                            </p>
+                </div>
+                <div style="padding-left: 10px;">
                         <span class="oi oi-media-record" style="color: 
                         {% if todo.importance == 000 %}white 
                         {% elif todo.importance == 100 %}green 
                         {% elif todo.importance == 200 %}orange 
                         {% elif todo.importance == 300 %}red 
                         {% endif %}"></span>
-                    </div>
+                </div>
+
+
+
                 </div>
             <div class="row">
                 <!-- date created -->
@@ -59,10 +62,10 @@
 
             <!-- edit button -->
             <div class="col-6">
-                <form action="#">
+                <form action="{% url 'update' todo.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="todo_id" value="{{ todo.id }}" />
-                    <button type="submit" class="btn btn-primary float-right btn-sm" onclick="window.location.href='/edit.html'">
+                    <button type="submit" class="btn btn-primary float-right btn-sm">
                         <span class="oi oi-pencil"></span> Edit</button>
                 </form>
             </div>
