@@ -89,14 +89,14 @@ html {
 
 /* padding left, right */
 .impressum-datenschutz {
-    padding-left: 12px;
-    padding-right: 12px;
+    /*padding-left: 12px;*/
+    /*padding-right: 12px;*/
 }
 
 /* just one create element on the specific page (id)*/
 #single-card {
     /*align-self: center;*/
-    width: 90%;
+    width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -106,11 +106,18 @@ html {
 }
 
 .content {
-    display: flex;
+    overflow-y: auto;
+    /*display: flex;*/
     justify-content: center;
     height: 100%;
 
     padding: 0px 10px;
+}
+
+@media (min-width: 576px) {
+    .content {
+        display: flex;
+    }
 }
 
 /* used for moving the create and edit card to the center of the screen */
