@@ -3,7 +3,7 @@
 {% block content %}
 <div class="content-single-card">
   <div class="card">
-    <form action="" method="post" id="single-card" data-url="{% url 'signup' %}">
+    <form action="{% url 'signup' %}" method="post" id="single-card">
         {% csrf_token %}
         <div class="card-header">
           <h3>Sign up</h3>

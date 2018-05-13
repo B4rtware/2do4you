@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="content-single-card">
-<form action="" method="post" id="single-card" data-url="{% url 'create' %}">
+<form action="{% url 'create' %}" method="post" id="single-card">
     <div class="card">
         {% csrf_token %}
         {% for hidden in form.hidden_fields %}
