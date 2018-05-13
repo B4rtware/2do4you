@@ -31,3 +31,10 @@ visit this site to add it into your repos: https://downloads.mariadb.org/mariadb
 
 - mysql_config not found
 -> `sudo apt install libmariadbclient-dev`
+
+
+## Run Server
+
+- `pipenv shell`
+- `cd todoforyou`
+- `python manage.py runserver`
