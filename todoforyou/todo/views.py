@@ -13,9 +13,15 @@ from todo.models import Todo
 
 # Create your views here.
 
+def index(request):
+    if request.method == "GET":
+        # do something
+        return HttpResponse("Hello World")
+
 class TodoIndexView(LoginRequiredMixin, ListView):
     model = Todo
 
+    # filter out user specific todos
     def get_queryset(self):
         queryset = super(TodoIndexView, self).get_queryset()
         return queryset.filter(user_id = self.request.user)
@@ -37,6 +43,7 @@ class TodoCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
+        # set foreign key for the current instance of the form object before saving it into the database
         form.instance.user = self.request.user
         return super(TodoCreateView, self).form_valid(form)
 
@@ -45,6 +52,7 @@ class TodoSignupView(CreateView):
     success_url = reverse_lazy('index')
     template_name = "todo/todo_signup_form.html"
 
+    # normal signup does not automatically login the user
     def form_valid(self, form):
         valid = super(TodoSignupView, self).form_valid(form)
 
